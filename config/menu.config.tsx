@@ -40,16 +40,8 @@ export const MENU_SIDEBAR: MenuConfig = [
     path: '#',
     icon: UserCircle,
   },
-  {
-    title: 'Add New Client',
-    path: '#',
-    icon: UserPlus,
-  },
-  {
-    title: 'One Time Charge',
-    path: '#',
-    icon: CreditCard,
-  },
+ 
+ 
   {
     title: 'Point of Sales',
     path: '#',
@@ -91,24 +83,14 @@ export const MENU_SIDEBAR: MenuConfig = [
     path: '#',
     icon: Plug,
     children: [
-      { title: 'Integrations', path: '#' },
+      
       { title: 'Payment Gateway', path: '#' },
       { title: 'Third-party integration', path: '#' },
       { title: 'Check-In System', path: '#' },
       { title: 'Sync Calendars', path: '#' },
     ],
   },
-  {
-    title: 'My Profile',
-    path: '#',
-    icon: UserCircle,
-    children: [
-      { title: 'My Profile', path: '#' },
-      { title: 'Personal Information', path: '#' },
-      { title: 'Change Password', path: '#' },
-      { title: 'Billing', path: '#' },
-    ],
-  },
+
   {
     title: 'One Time Charge',
     path: '#',
@@ -129,16 +111,7 @@ export const MENU_SIDEBAR: MenuConfig = [
     path: '#',
     icon: UserPlus,
   },
-  {
-    title: 'Contact Support',
-    path: '#',
-    icon: LifeBuoy,
-  },
-  {
-    title: 'Privacy Policy',
-    path: '#',
-    icon: ShieldCheck,
-  },
+
 ];
 
 export const MENU_SIDEBAR_CUSTOM: MenuConfig = MENU_SIDEBAR;
