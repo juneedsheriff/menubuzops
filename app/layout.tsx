@@ -15,12 +15,12 @@ const inter = Inter({ subsets: ['latin'] });
 
 import '@mantine/core/styles.css';
 import '@/css/styles.css';
-import '@/components/keenicons/assets/styles.css';
+import '@/components/Buzopsicons/assets/styles.css';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Metronic',
-    default: 'Metronic', // a default is required when creating a template
+    template: '%s | Buzops',
+    default: 'Buzops', // a default is required when creating a template
   }
 };
 
