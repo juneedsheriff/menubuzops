@@ -57,7 +57,7 @@ export function Demo1Layout({ children }: { children: ReactNode }) {
         <Header />
 
         <main className="grow pt-5" role="content">
-          
+          {children}
         </main>
 
         <Footer />

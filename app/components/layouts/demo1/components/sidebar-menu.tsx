@@ -16,8 +16,7 @@ import {
   AccordionMenuSubContent,
   AccordionMenuSubTrigger,
 } from '@/components/ui/accordion-menu';
-import { Badge } from '@/components/ui/badge';
-
+ import { Badge } from '@mantine/core';
 export function SidebarMenu() {
   const pathname = usePathname();
 
@@ -30,16 +29,16 @@ export function SidebarMenu() {
 
   // Global classNames for consistent styling
   const classNames: AccordionMenuClassNames = {
-    root: 'lg:ps-1 space-y-3',
-    group: 'gap-px',
+    root: 'lg:ps-1 space-y-3 text-left',
+    group: 'gap-px text-left',
     label:
-      'uppercase text-xs font-medium text-muted-foreground/70 pt-2.25 pb-px',
+      'uppercase text-left text-sm font-medium text-muted-foreground/70 pt-2.25 pb-px',
     separator: '',
-    item: 'h-8 hover:bg-transparent text-accent-foreground hover:text-primary data-[selected=true]:text-primary data-[selected=true]:bg-muted data-[selected=true]:font-medium',
-    sub: '',
+    item: 'h-8 text-left justify-start text-[14px] hover:bg-transparent text-accent-foreground hover:text-primary data-[selected=true]:text-primary data-[selected=true]:bg-muted data-[selected=true]:font-medium',
+    sub: 'text-left',
     subTrigger:
-      'h-8 hover:bg-transparent text-accent-foreground hover:text-primary data-[selected=true]:text-primary data-[selected=true]:bg-muted data-[selected=true]:font-medium',
-    subContent: 'py-0',
+      'h-8 text-left justify-start text-[13px] hover:bg-transparent text-accent-foreground hover:text-primary data-[selected=true]:text-primary data-[selected=true]:bg-muted data-[selected=true]:font-medium',
+    subContent: 'py-0 text-left',
     indicator: '',
   };
 
@@ -59,9 +58,11 @@ export function SidebarMenu() {
     if (item.children) {
       return (
         <AccordionMenuSub key={index} value={item.path || `root-${index}`}>
-          <AccordionMenuSubTrigger className="text-sm font-medium">
+          <AccordionMenuSubTrigger className="text-[14px] font-medium">
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title" className="text-[14px] font-medium">
+              {item.title}
+            </span>
           </AccordionMenuSubTrigger>
           <AccordionMenuSubContent
             type="single"
@@ -80,14 +81,16 @@ export function SidebarMenu() {
         <AccordionMenuItem
           key={index}
           value={item.path || ''}
-          className="text-sm font-medium"
+          className="text-[14px] font-medium"
         >
           <Link
             href={item.path || '#'}
-            className="flex items-center justify-between grow gap-2"
+            className="flex w-full items-center justify-start gap-2 text-left"
           >
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title">{item.title}</span>
+            <span data-slot="accordion-menu-title" className="text-[14px] font-medium">
+              {item.title}
+            </span>
           </Link>
         </AccordionMenuItem>
       );
@@ -105,7 +108,9 @@ export function SidebarMenu() {
         className="text-sm font-medium"
       >
         {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-        <span data-slot="accordion-menu-title">{item.title}</span>
+        <span data-slot="accordion-menu-title" className="text-[14px]">
+          {item.title}
+        </span>
         {item.disabled && (
           <Badge variant="secondary" size="sm" className="ms-auto me-[-10px]">
             Soon
@@ -179,7 +184,9 @@ export function SidebarMenu() {
           value={item.path || ''}
           className="text-[13px]"
         >
-          <Link href={item.path || '#'}>{item.title}</Link>
+          <Link href={item.path || '#'} className="text-left text-[13px]">
+            {item.title}
+          </Link>
         </AccordionMenuItem>
       );
     }
