@@ -38,7 +38,7 @@ export const MENU_HELP: MenuConfig = [
   {
     title: 'Getting Started',
     icon: Coffee,
-    path: 'https://keenthemes.com/metronic/tailwind/docs/getting-started/installation',
+    path: 'https://Buzopsthemes.com/Buzops/tailwind/docs/getting-started/installation',
   },
   {
     title: 'Support Forum',
@@ -47,32 +47,32 @@ export const MENU_HELP: MenuConfig = [
       {
         title: 'All Questions',
         icon: FileQuestion,
-        path: 'https://devs.keenthemes.com',
+        path: 'https://devs.Buzopsthemes.com',
       },
       {
         title: 'Popular Questions',
         icon: Star,
-        path: 'https://devs.keenthemes.com/popular',
+        path: 'https://devs.Buzopsthemes.com/popular',
       },
       {
         title: 'Ask Question',
         icon: HelpCircle,
-        path: 'https://devs.keenthemes.com/question/create',
+        path: 'https://devs.Buzopsthemes.com/question/create',
       },
     ],
   },
   {
     title: 'Licenses & FAQ',
     icon: Captions,
-    path: 'https://keenthemes.com/metronic/tailwind/docs/getting-started/license',
+    path: 'https://Buzopsthemes.com/Buzops/tailwind/docs/getting-started/license',
   },
   {
     title: 'Documentation',
     icon: FileQuestion,
-    path: 'https://keenthemes.com/metronic/tailwind/docs',
+    path: 'https://Buzopsthemes.com/Buzops/tailwind/docs',
   },
   { separator: true },
-  { title: 'Contact Us', icon: Share2, path: 'https://keenthemes.com/contact' },
+  { title: 'Contact Us', icon: Share2, path: 'https://Buzopsthemes.com/contact' },
 ];
 
 export const MENU_ROOT: MenuConfig = [
