@@ -92,21 +92,6 @@ export const MENU_SIDEBAR: MenuConfig = [
   },
 
   {
-    title: 'One Time Charge',
-    path: '#',
-    icon: CreditCard,
-  },
-  {
-    title: 'Live Check-Ins',
-    path: '#',
-    icon: Activity,
-  },
-  {
-    title: 'Kiosk',
-    path: '#',
-    icon: Monitor,
-  },
-  {
     title: 'Add New Client',
     path: '#',
     icon: UserPlus,
@@ -116,7 +101,12 @@ export const MENU_SIDEBAR: MenuConfig = [
 
 export const MENU_SIDEBAR_CUSTOM: MenuConfig = MENU_SIDEBAR;
 
-export const MENU_MEGA: MenuConfig = [{ title: 'Home', path: '/' }];
+export const MENU_MEGA: MenuConfig = [
+  { title: 'One Time Charge', path: '#', icon: CreditCard },
+  { title: 'Live Check-Ins', path: '#', icon: Activity },
+  { title: 'Kiosk', path: '#', icon: Monitor },
+  { title: 'Add New Client', path: '#', icon: UserPlus },
+];
 
 export const MENU_MEGA_MOBILE: MenuConfig = MENU_MEGA;
 

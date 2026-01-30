@@ -38,9 +38,10 @@ export function MegaMenu() {
               <NavigationMenuLink asChild>
                 <Link
                   href={item.path}
-                  className={cn(linkClass)}
+                  className={cn(linkClass, 'flex items-center gap-2')}
                   data-active={isActive || undefined}
                 >
+                  {item.icon && <item.icon className="size-4" />}
                   {item.title}
                 </Link>
               </NavigationMenuLink>
