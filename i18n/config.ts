@@ -28,7 +28,7 @@ export const I18N_LANGUAGES: Language[] = [
     name: 'French',
     shortName: 'FR',
     direction: 'ltr',
-    flag: '/media/flags/french.svg',
+    flag: '/media/flags/france.svg',
   },
   
 ];

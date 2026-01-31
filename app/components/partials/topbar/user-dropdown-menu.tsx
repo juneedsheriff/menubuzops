@@ -73,9 +73,7 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
               </Link>
             </div>
           </div>
-          <Badge variant="primary" appearance="light" size="sm">
-            Pro
-          </Badge>
+       
         </div>
 
         <DropdownMenuSeparator />
@@ -88,9 +86,21 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
             My Profile
           </Link>
         </DropdownMenuItem>
+       
+        <DropdownMenuItem asChild>
+          <Link href="/" className="flex items-center gap-2">
+            <CreditCard />
+            Billing
+            </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/" className="flex items-center gap-2">
+            <Shield />
+            Change Password
+          </Link>
+        </DropdownMenuItem>
 
-   
- 
+  
 
         {/* Language Submenu with Radio Group */}
         <DropdownMenuSub>

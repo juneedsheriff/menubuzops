@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
- ;
 import { UserDropdownMenu } from '@/partials/topbar/user-dropdown-menu';
 import {
   Bell,
@@ -18,6 +17,7 @@ import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useScrollPosition } from '@/hooks/use-scroll-position';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Sheet,
   SheetBody,
@@ -49,7 +49,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'header fixed top-0 z-10 start-0 flex items-stretch shrink-0 border-b border-transparent bg-background end-0 pe-[var(--removed-body-scroll-bar-size,0px)]',
+        'header fixed top-0 z-10 start-0 flex items-stretch shrink-0 border-b border-border bg-background end-0 pe-[var(--removed-body-scroll-bar-size,0px)]',
         headerSticky && 'border-b border-border',
       )}
     >
@@ -58,7 +58,7 @@ export function Header() {
         <div className="flex gap-1 lg:hidden items-center gap-2.5">
           <Link href="/" className="shrink-0">
             <img
-              src={toAbsoluteUrl('/media/app/mini-logo.svg')}
+              src={toAbsoluteUrl('/media/app/mini-logo.png')}
               className="h-[25px] w-full"
               alt="mini-logo"
             />
@@ -86,40 +86,28 @@ export function Header() {
                 </SheetContent>
               </Sheet>
             )}
-            {mobileMode && (
-              <Sheet
-                open={isMegaMenuSheetOpen}
-                onOpenChange={setIsMegaMenuSheetOpen}
-              >
-                <SheetTrigger asChild>
-                  <Button variant="ghost" mode="icon">
-                    <SquareChevronRight className="text-muted-foreground/70" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent
-                  className="p-0 gap-0 w-[275px]"
-                  side="left"
-                  close={false}
-                >
-                  <SheetHeader className="p-0 space-y-0" />
-                  <SheetBody className="p-0 overflow-y-auto">
-                    <MegaMenuMobile />
-                  </SheetBody>
-                </SheetContent>
-              </Sheet>
-            )}
+           
           </div>
         </div>
 
-        {/* Main Content (MegaMenu or Breadcrumbs) */}
-        {!mobileMode && <MegaMenu />}
+        {/* Main Content */}
+        {!mobileMode && (
+          <div className="flex items-center gap-4">
+            <div className="relative w-64">
+              <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder="Search Client"
+                className="h-9 rounded-full pl-9"
+              />
+            </div>
+            <MegaMenu />
+          </div>
+        )}
 
         {/* HeaderTopbar */}
         <div className="flex items-center gap-3">
       
             <>
-             <Search className="size-4.5!" />
-             
               <Bell className="size-4.5!" />
           
                     <MessageCircleMore className="size-4.5!" />
