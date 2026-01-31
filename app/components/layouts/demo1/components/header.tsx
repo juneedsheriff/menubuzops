@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
- ;
 import { UserDropdownMenu } from '@/partials/topbar/user-dropdown-menu';
 import {
   Bell,
@@ -18,6 +17,7 @@ import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useScrollPosition } from '@/hooks/use-scroll-position';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Sheet,
   SheetBody,
@@ -90,15 +90,24 @@ export function Header() {
           </div>
         </div>
 
-        {/* Main Content (MegaMenu or Breadcrumbs) */}
-        {!mobileMode && <MegaMenu />}
+        {/* Main Content */}
+        {!mobileMode && (
+          <div className="flex items-center gap-4">
+            <div className="relative w-64">
+              <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder="Search Client"
+                className="h-9 rounded-full pl-9"
+              />
+            </div>
+            <MegaMenu />
+          </div>
+        )}
 
         {/* HeaderTopbar */}
         <div className="flex items-center gap-3">
       
             <>
-             <Search className="size-4.5!" />
-             
               <Bell className="size-4.5!" />
           
                     <MessageCircleMore className="size-4.5!" />
