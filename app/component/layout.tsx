@@ -1,6 +1,5 @@
 'use client';
-
-import { Demo1Layout } from '../components/layouts/demo1/layout';
+import Demo1Layout from "./layouts/demo1/layout";
 
 export default function ProtectedLayout({
   children,

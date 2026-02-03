@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { UserDropdownMenu } from '@/partials/topbar/user-dropdown-menu';
+
+import { UserDropdownMenu } from '@/app/component/partials/topbar/user-dropdown-menu';
 import {
   Bell,
   LayoutGrid,
