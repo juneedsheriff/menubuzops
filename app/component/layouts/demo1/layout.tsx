@@ -2,30 +2,12 @@
 
 import { ReactNode, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useSettings } from '@/providers/settings-provider';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { Sidebar } from './components/sidebar';
 
 export function Demo1Layout({ children }: { children: ReactNode }) {
   const isMobile = useIsMobile();
-  const { settings, setOption } = useSettings();
-
-  useEffect(() => {
-    const bodyClass = document.body.classList;
-
-    if (settings.layouts.demo1.sidebarCollapse) {
-      bodyClass.add('sidebar-collapse');
-    } else {
-      bodyClass.remove('sidebar-collapse');
-    }
-  }, [settings]); // Runs only on settings update
-
-  useEffect(() => {
-    // Set current layout
-    setOption('layout', 'demo1');
-  }, [setOption]);
-
   useEffect(() => {
     const bodyClass = document.body.classList;
 
@@ -42,7 +24,6 @@ export function Demo1Layout({ children }: { children: ReactNode }) {
     return () => {
       bodyClass.remove('demo1');
       bodyClass.remove('sidebar-fixed');
-      bodyClass.remove('sidebar-collapse');
       bodyClass.remove('header-fixed');
       bodyClass.remove('layout-initialized');
       clearTimeout(timer);

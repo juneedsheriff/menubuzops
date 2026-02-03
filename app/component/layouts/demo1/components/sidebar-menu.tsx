@@ -20,6 +20,17 @@ import {
 export function SidebarMenu() {
   const pathname = usePathname();
 
+  const getItemValue = (
+    item: MenuItem,
+    index: number,
+    level: number,
+    scope: string,
+  ) => {
+    const rawPath = item.path && item.path !== '#' ? item.path : '';
+    const safeTitle = (item.title || scope).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    return rawPath || `${scope}-${level}-${index}-${safeTitle}`;
+  };
+
   // Memoize matchPath to prevent unnecessary re-renders
   const matchPath = useCallback(
     (path: string): boolean =>
@@ -55,9 +66,10 @@ export function SidebarMenu() {
   };
 
   const buildMenuItemRoot = (item: MenuItem, index: number): JSX.Element => {
+    const value = getItemValue(item, index, 0, 'root');
     if (item.children) {
       return (
-        <AccordionMenuSub key={index} value={item.path || `root-${index}`}>
+        <AccordionMenuSub key={index} value={value}>
           <AccordionMenuSubTrigger className="text-[14px] font-medium">
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
             <span data-slot="accordion-menu-title" className="text-[14px] font-medium">
@@ -67,7 +79,7 @@ export function SidebarMenu() {
           <AccordionMenuSubContent
             type="single"
             collapsible
-            parentValue={item.path || `root-${index}`}
+            parentValue={value}
             className="ps-6"
           >
             <AccordionMenuGroup>
@@ -80,7 +92,7 @@ export function SidebarMenu() {
       return (
         <AccordionMenuItem
           key={index}
-          value={item.path || ''}
+          value={value}
           className="text-[14px] font-medium"
         >
           <Link
@@ -101,10 +113,11 @@ export function SidebarMenu() {
     item: MenuItem,
     index: number,
   ): JSX.Element => {
+    const value = getItemValue(item, index, 0, 'disabled');
     return (
       <AccordionMenuItem
         key={index}
-        value={`disabled-${index}`}
+        value={value}
         className="text-sm font-medium"
       >
         {item.icon && <item.icon data-slot="accordion-menu-icon" />}
@@ -138,11 +151,12 @@ export function SidebarMenu() {
     index: number,
     level: number = 0,
   ): JSX.Element => {
+    const value = getItemValue(item, index, level, 'child');
     if (item.children) {
       return (
         <AccordionMenuSub
           key={index}
-          value={item.path || `child-${level}-${index}`}
+          value={value}
         >
           <AccordionMenuSubTrigger className="text-[13px]">
             {item.collapse ? (
@@ -161,7 +175,7 @@ export function SidebarMenu() {
           <AccordionMenuSubContent
             type="single"
             collapsible
-            parentValue={item.path || `child-${level}-${index}`}
+            parentValue={value}
             className={cn(
               'ps-4',
               !item.collapse && 'relative',
@@ -181,7 +195,7 @@ export function SidebarMenu() {
       return (
         <AccordionMenuItem
           key={index}
-          value={item.path || ''}
+          value={value}
           className="text-[13px]"
         >
           <Link href={item.path || '#'} className="text-left text-[13px]">
@@ -197,10 +211,11 @@ export function SidebarMenu() {
     index: number,
     level: number = 0,
   ): JSX.Element => {
+    const value = getItemValue(item, index, level, 'disabled-child');
     return (
       <AccordionMenuItem
         key={index}
-        value={`disabled-child-${level}-${index}`}
+        value={value}
         className="text-[13px]"
       >
         <span data-slot="accordion-menu-title">{item.title}</span>

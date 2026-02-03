@@ -1,20 +1,30 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ChevronFirst } from 'lucide-react';
 import { toAbsoluteUrl } from '@/lib/helpers';
 import { cn } from '@/lib/utils';
-import { useSettings } from '@/providers/settings-provider';
 import { Button } from '@/components/ui/button';
 
 export function SidebarHeader() {
-  const { settings, storeOption } = useSettings();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    setIsCollapsed(document.body.classList.contains('sidebar-collapse'));
+  }, []);
 
   const handleToggleClick = () => {
-    storeOption(
-      'layouts.demo1.sidebarCollapse',
-      !settings.layouts.demo1.sidebarCollapse,
-    );
+    setIsCollapsed((prev) => {
+      const next = !prev;
+      const bodyClass = document.body.classList;
+      if (next) {
+        bodyClass.add('sidebar-collapse');
+      } else {
+        bodyClass.remove('sidebar-collapse');
+      }
+      return next;
+    });
   };
 
   return (
@@ -50,11 +60,10 @@ export function SidebarHeader() {
         size="sm"
         mode="icon"
         variant="outline"
+        aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         className={cn(
           'size-7 absolute start-full top-2/4 rtl:translate-x-2/4 -translate-x-2/4 -translate-y-2/4',
-          settings.layouts.demo1.sidebarCollapse
-            ? 'ltr:rotate-180'
-            : 'rtl:rotate-180',
+          isCollapsed ? 'ltr:rotate-180' : 'rtl:rotate-180',
         )}
       >
         <ChevronFirst className="size-4!" />

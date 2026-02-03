@@ -1,11 +1,8 @@
 import { ReactNode, Suspense } from 'react';
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import { SettingsProvider } from '@/providers/settings-provider';
- import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from '@/components/ui/sonner';
 import { Metadata } from 'next';
-import { I18nProvider } from '@/providers/i18n-provider';
- 
 import { ThemeProvider } from '@/providers/theme-provider';
 import { MantineProvider } from '@mantine/core';
 
@@ -36,21 +33,12 @@ export default async function RootLayout({
           inter.className,
         )}
       >
-        
-          <SettingsProvider>
-            <ThemeProvider>
-              <MantineProvider>
-                <I18nProvider>
-                 
-                    
-                      <Suspense>{children}</Suspense>
-                      <Toaster />
-                    
-                </I18nProvider>
-              </MantineProvider>
-            </ThemeProvider>
-          </SettingsProvider>
-     
+        <ThemeProvider>
+          <MantineProvider>
+            <Suspense>{children}</Suspense>
+            <Toaster />
+          </MantineProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
