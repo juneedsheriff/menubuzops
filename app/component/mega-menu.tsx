@@ -46,7 +46,6 @@ export function MegaMenu() {
           </NavigationMenuTrigger>
           <NavigationMenuContent className="p-0">
             <div className="min-w-[320px] rounded-lg border border-border bg-background p-4 shadow-lg">
-             
               <div className="mt-3 grid grid-cols-2 gap-2">
                 {MENU_MEGA.map((link) => (
                   <NavigationMenuLink key={link.title} asChild>

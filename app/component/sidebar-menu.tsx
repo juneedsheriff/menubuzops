@@ -16,7 +16,8 @@ import {
   AccordionMenuSubContent,
   AccordionMenuSubTrigger,
 } from '@/components/ui/accordion-menu';
- import { Badge } from '@mantine/core';
+import { Badge } from '@mantine/core';
+
 export function SidebarMenu() {
   const pathname = usePathname();
 
@@ -27,7 +28,9 @@ export function SidebarMenu() {
     scope: string,
   ) => {
     const rawPath = item.path && item.path !== '#' ? item.path : '';
-    const safeTitle = (item.title || scope).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const safeTitle = (item.title || scope)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-');
     return rawPath || `${scope}-${level}-${index}-${safeTitle}`;
   };
 
@@ -72,7 +75,10 @@ export function SidebarMenu() {
         <AccordionMenuSub key={index} value={value}>
           <AccordionMenuSubTrigger className="text-[14px] font-medium">
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title" className="text-[14px] font-medium">
+            <span
+              data-slot="accordion-menu-title"
+              className="text-[14px] font-medium"
+            >
               {item.title}
             </span>
           </AccordionMenuSubTrigger>
@@ -100,7 +106,10 @@ export function SidebarMenu() {
             className="flex w-full items-center justify-start gap-2 text-left"
           >
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
-            <span data-slot="accordion-menu-title" className="text-[14px] font-medium">
+            <span
+              data-slot="accordion-menu-title"
+              className="text-[14px] font-medium"
+            >
               {item.title}
             </span>
           </Link>
@@ -154,10 +163,7 @@ export function SidebarMenu() {
     const value = getItemValue(item, index, level, 'child');
     if (item.children) {
       return (
-        <AccordionMenuSub
-          key={index}
-          value={value}
-        >
+        <AccordionMenuSub key={index} value={value}>
           <AccordionMenuSubTrigger className="text-[13px]">
             {item.collapse ? (
               <span className="text-muted-foreground">
@@ -193,11 +199,7 @@ export function SidebarMenu() {
       );
     } else {
       return (
-        <AccordionMenuItem
-          key={index}
-          value={value}
-          className="text-[13px]"
-        >
+        <AccordionMenuItem key={index} value={value} className="text-[13px]">
           <Link href={item.path || '#'} className="text-left text-[13px]">
             {item.title}
           </Link>
@@ -213,11 +215,7 @@ export function SidebarMenu() {
   ): JSX.Element => {
     const value = getItemValue(item, index, level, 'disabled-child');
     return (
-      <AccordionMenuItem
-        key={index}
-        value={value}
-        className="text-[13px]"
-      >
+      <AccordionMenuItem key={index} value={value} className="text-[13px]">
         <span data-slot="accordion-menu-title">{item.title}</span>
         {item.disabled && (
           <Badge variant="secondary" size="sm" className="ms-auto me-[-10px]">
@@ -233,7 +231,7 @@ export function SidebarMenu() {
   };
 
   return (
-    <div className="kt-scrollable-y-hover flex grow shrink-0 py-5 px-5 lg:max-h-[calc(100vh-5.5rem)]">
+    <div className="buzops-scrollable-y-hover flex grow shrink-0 py-5 px-5 lg:max-h-[calc(100vh-5.5rem)]">
       <AccordionMenu
         selectedValue={pathname}
         matchPath={matchPath}

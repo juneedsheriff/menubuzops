@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { UserDropdownMenu } from '@/app/component/partials/topbar/user-dropdown-menu';
+import { UserDropdownMenu } from './user-dropdown-menu';
 import {
   Bell,
   LayoutGrid,
@@ -26,8 +26,8 @@ import {
   SheetHeader,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Container } from '@/components/common/container';
- import { MegaMenu } from './mega-menu';
+import { Container } from '@/components/ui/container';
+import { MegaMenu } from './mega-menu';
 import { MegaMenuMobile } from './mega-menu-mobile';
 import { SidebarMenu } from './sidebar-menu';
 
@@ -87,7 +87,6 @@ export function Header() {
                 </SheetContent>
               </Sheet>
             )}
-           
           </div>
         </div>
 
@@ -107,24 +106,22 @@ export function Header() {
 
         {/* HeaderTopbar */}
         <div className="flex items-center gap-3">
-      
-            <>
-              <Bell className="size-4.5!" />
-          
-                    <MessageCircleMore className="size-4.5!" />
-             
-               <LayoutGrid className="size-4.5!" />
-              <UserDropdownMenu
-                trigger={
-                  <img
-                    className="size-9 rounded-full border-2 border-green-500 shrink-0 cursor-pointer"
-                    src={toAbsoluteUrl('/media/avatars/300-2.png')}
-                    alt="User Avatar"
-                  />
-                }
-              />
-            </>
-         
+          <>
+            <Bell className="size-4.5!" />
+
+            <MessageCircleMore className="size-4.5!" />
+
+            <LayoutGrid className="size-4.5!" />
+            <UserDropdownMenu
+              trigger={
+                <img
+                  className="size-9 rounded-full border-2 border-green-500 shrink-0 cursor-pointer"
+                  src={toAbsoluteUrl('/media/avatars/300-2.png')}
+                  alt="User Avatar"
+                />
+              }
+            />
+          </>
         </div>
       </Container>
     </header>

@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ['latin'] });
 
 import '@mantine/core/styles.css';
 import '@/css/styles.css';
-import '@/components/Buzopsicons/assets/styles.css';
 
 export const metadata: Metadata = {
   title: {

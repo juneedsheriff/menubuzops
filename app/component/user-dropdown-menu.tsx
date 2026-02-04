@@ -13,7 +13,6 @@ import {
   Users,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -60,25 +59,23 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
               </Link>
             </div>
           </div>
-       
         </div>
 
         <DropdownMenuSeparator />
 
         {/* Menu Items */}
-    
         <DropdownMenuItem asChild>
           <Link href="/" className="flex items-center gap-2">
             <User />
             My Profile
           </Link>
         </DropdownMenuItem>
-       
+
         <DropdownMenuItem asChild>
           <Link href="/" className="flex items-center gap-2">
             <CreditCard />
             Billing
-            </Link>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/" className="flex items-center gap-2">
@@ -86,8 +83,6 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
             Change Password
           </Link>
         </DropdownMenuItem>
-
-  
 
         {/* Footer */}
         <DropdownMenuItem
