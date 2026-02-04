@@ -4,13 +4,11 @@ import {
   CreditCard,
   FileText,
   LayoutGrid,
-  LifeBuoy,
-  Monitor,
+   Monitor,
   Plug,
   Settings,
   Share2,
-  ShieldCheck,
-  ShoppingCart,
+   ShoppingCart,
   UserCircle,
   UserPlus,
   Users,
@@ -91,11 +89,7 @@ export const MENU_SIDEBAR: MenuConfig = [
     ],
   },
 
-  {
-    title: 'Add New Client',
-    path: '#',
-    icon: UserPlus,
-  },
+ 
 
 ];
 

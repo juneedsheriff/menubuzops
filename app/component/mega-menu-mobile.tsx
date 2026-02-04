@@ -1,5 +1,4 @@
 'use client';
-'use client';
 
 import { JSX, useCallback } from 'react';
 import Link from 'next/link';
@@ -144,10 +143,7 @@ export function MegaMenuMobile() {
   ): JSX.Element => {
     if (item.children) {
       return (
-        <AccordionMenuSub
-          key={index}
-          value={item.path || `child-${level}-${index}`}
-        >
+        <AccordionMenuSub key={index} value={item.path || `child-${level}-${index}`}>
           <AccordionMenuSubTrigger className="text-[13px]">
             {item.icon && <item.icon data-slot="accordion-menu-icon" />}
             {item.collapse ? (

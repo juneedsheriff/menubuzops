@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@/components/common/container';
+import { Container } from '@/components/ui/container';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,7 +27,7 @@ export function Footer() {
             >
               Docs
             </a>
-             
+
             <a
               href="#"
               target="_blank"
@@ -36,14 +36,14 @@ export function Footer() {
               FAQ
             </a>
             <a
-             href="#"
+              href="#"
               target="_blank"
               className="hover:text-primary"
             >
               Support
             </a>
             <a
-               href="#"
+              href="#"
               target="_blank"
               className="hover:text-primary"
             >
